@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Головна сторінка</title>
+</head>
+<body>
+    <h1>Головна сторінка</h1>
+
+    {% if user.is_authenticated %}
+        <p>Ви увійшли як <strong>{{ user.username }}</strong></p>
+        <form action="{% url 'logout' %}" method="post">
+            {% csrf_token %}
+            <button type="submit">Вийти</button>
+        </form>
+    {% else %}
+        <p><a href="{% url 'login' %}">Увійти</a> | <a href="{% url 'register' %}">Зареєструватися</a></p>
+    {% endif %}
+</body>
+</html>
