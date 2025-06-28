@@ -1,0 +1,8 @@
+<h2>Список вхідних фраз</h2>
+<ul>
+  {% for prompt in prompts %}
+    <li>{{ prompt.text }}</li>
+  {% empty %}
+    <li>Жодної фрази не знайдено.</li>
+  {% endfor %}
+</ul>

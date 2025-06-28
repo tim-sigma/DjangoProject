@@ -2,7 +2,7 @@ from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
-from main_app.views import InputPhraseViewSet, ReferencePhraseViewSet, PromptViewSet, ResultViewSet
+from .views import InputPhraseViewSet, ReferencePhraseViewSet, PromptViewSet, ResultViewSet
 
 router = DefaultRouter()
 router.register('inputphrases', InputPhraseViewSet)

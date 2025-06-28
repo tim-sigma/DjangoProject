@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import InputPhrase, ReferencePhrase, Prompt, Result
+from main_app.models import InputPhrase, ReferencePhrase, Prompt, Result
 
 class InputPhraseSerializer(serializers.ModelSerializer):
     class Meta:

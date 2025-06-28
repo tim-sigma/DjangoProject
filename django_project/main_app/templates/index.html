@@ -9,6 +9,12 @@
 
     {% if user.is_authenticated %}
         <p>Ви увійшли як <strong>{{ user.username }}</strong></p>
+
+        <p><a href="{% url 'inputphrase_list' %}">Вхідні фрази</a></p>
+        <p><a href="{% url 'referencephrase_list' %}">Опорні фрази</a></p>
+        <p><a href="{% url 'prompt_list' %}">Промпти</a></p>
+        <p><a href="{% url 'result_list' %}">Результати</a></p>
+
         <form action="{% url 'logout' %}" method="post">
             {% csrf_token %}
             <button type="submit">Вийти</button>
