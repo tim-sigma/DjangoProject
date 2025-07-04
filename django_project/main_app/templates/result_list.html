@@ -1,8 +1,14 @@
 <h2>Список вхідних фраз</h2>
 <ul>
   {% for result in results %}
-    <li>{{ result.text }}</li>
+    <li>
+      <a href="{% url 'result_detail' phrase.pk %}">{{ result.text }}</a>
+    </li>
   {% empty %}
     <li>Жодної фрази не знайдено.</li>
   {% endfor %}
 </ul>
+
+<p><a href="{% url 'result_add' %}">Додати запис</a></p>
+
+<p><a href="{% url 'home' %}">Головна сторінка</a></p>

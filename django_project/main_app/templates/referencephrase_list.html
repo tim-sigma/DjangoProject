@@ -1,8 +1,14 @@
 <h2>Список вхідних фраз</h2>
 <ul>
   {% for phrase in referencephrases %}
-    <li>{{ phrase.text }}</li>
+    <li>
+      <a href="{% url 'referencephrase_detail' phrase.pk %}">{{ phrase.text }}</a>
+    </li>
   {% empty %}
     <li>Жодної фрази не знайдено.</li>
   {% endfor %}
 </ul>
+
+<p><a href="{% url 'referencephrase_add' %}">Додати запис</a></p>
+
+<p><a href="{% url 'home' %}">Головна сторінка</a></p>

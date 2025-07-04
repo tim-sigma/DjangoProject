@@ -1,0 +1,8 @@
+<h2>Видалення об'єкта</h2>
+<p>Ви впевнені, що хочете видалити об'єкт: "{{ object }}"?</p>
+
+<form method="post">
+  {% csrf_token %}
+  <button type="submit">Видалити</button>
+  <a href="javascript:history.back()">Скасувати</a>
+</form>

@@ -1,0 +1,33 @@
+<h2>Деталі промпту</h2>
+
+<p><strong>ID:</strong> {{ prompt.id }}</p>
+
+<p><strong>Вхідна фраза:</strong>
+  <a href="{% url 'inputphrase_detail' prompt.input_phrase.pk %}">
+    {{ prompt.input_phrase.text }}
+  </a>
+</p>
+
+<p><strong>Опорні фрази:</strong></p>
+<ul>
+  {% for ref in prompt.reference_phrases.all %}
+    <li>
+      <a href="{% url 'referencephrase_detail' ref.pk %}">
+        {{ ref.text }}
+      </a>
+    </li>
+  {% empty %}
+    <li>Опорні фрази не вказані.</li>
+  {% endfor %}
+</ul>
+
+<p><strong>Текст промпту:</strong></p>
+<p>{{ prompt.text }}</p>
+
+<p><strong>Дата створення:</strong> {{ prompt.created_at }}</p>
+
+<p><a href="{% url 'prompt_edit' prompt.pk %}">Редагувати</a></p>
+
+<p><a href="{% url 'prompt_delete' inputphrase.pk %}">Видалити</a></p>
+
+<p><a href="{% url 'prompt_list' %}">Назад до списку</a></p>

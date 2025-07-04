@@ -1,0 +1,40 @@
+<h2>Деталі результату</h2>
+
+<p><strong>ID:</strong> {{ result.id }}</p>
+
+<p><strong>Вхідна фраза:</strong>
+  <a href="{% url 'inputphrase_detail' result.input_phrase.pk %}">
+    {{ result.input_phrase.text }}
+  </a>
+</p>
+
+<p><strong>Промпт:</strong>
+  <a href="{% url 'prompt_detail' result.prompt.pk %}">
+    Переглянути промпт
+  </a>
+</p>
+
+<p><strong>Найбільш схожа опорна фраза:</strong>
+  <a href="{% url 'referencephrase_detail' result.matched_reference.pk %}">
+    {{ result.matched_reference.text }}
+  </a>
+</p>
+
+<p><strong>Пояснення від ChatGPT:</strong></p>
+<p>{{ result.explanation }}</p>
+
+<p><strong>Схожість:</strong></p>
+<ul>
+  <li>ML: {{ result.similarity_ml|default:"-" }}%</li>
+  <li>Косинусна: {{ result.similarity_cosine|default:"-" }}%</li>
+  <li>Семантична: {{ result.similarity_semantic|default:"-" }}%</li>
+  <li>Контекстна: {{ result.similarity_contextual|default:"-" }}%</li>
+</ul>
+
+<p><strong>Дата створення:</strong> {{ result.created_at }}</p>
+
+<p><a href="{% url 'result_edit' result.pk %}">Редагувати</a></p>
+
+<p><a href="{% url 'result_delete' inputphrase.pk %}">Видалити</a></p>
+
+<p><a href="{% url 'result_list' %}">Назад до списку</a></p>

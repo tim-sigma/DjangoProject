@@ -1,0 +1,10 @@
+<h2>Деталі вхідної фрази</h2>
+<p>ID: {{ inputphrase.id }}</p>
+<p>Текст: {{ inputphrase.text }}</p>
+
+<p><a href="{% url 'inputphrase_edit' inputphrase.pk %}">Редагувати</a></p>
+
+<p><a href="{% url 'inputphrase_delete' inputphrase.pk %}">Видалити</a></p>
+
+
+<a href="{% url 'inputphrase_list' %}">Назад до списку</a>
